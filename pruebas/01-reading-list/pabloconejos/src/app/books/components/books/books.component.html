@@ -1,0 +1,54 @@
+<section class="books-container">
+
+    <div class="container-filter">
+        <div class="title">
+            <h1>{{books.length}} libros disponibles</h1>
+            <h3>{{booksService.selectedBooks().length}} en la biblioteca</h3>
+        </div>
+        <div class="filters">
+            <label>
+                Filtra por paginas
+                <input (ngModelChange)="filterBooks()" [(ngModel)]="pages" type="range" name="" id="" [max]="booksService.getMaxPages()">
+                <p>{{pages}}</p>
+            </label>
+
+            <label>
+                Generos
+                <select [(ngModel)]="genero" name="generos" id="generos" (change)="filterBooks()">
+                    <option value="todos" selected>Todos</option>
+                    @for (genre of booksService.getGeneros(); track $index) {
+                        <option [value]="genre">{{genre}}</option>
+                    }
+                </select>
+            </label>
+            
+        </div>
+    </div>
+
+    <main class="books">
+        <ul class="lista-books">
+            @for (book of books; track $index) {
+                <li (click)="booksService.addSelectedBooks(book.book)" class="grid-item">
+                    <img [src]="book.book.cover" alt="">
+                    <p>{{book.book.genre}} - {{book.book.pages}}</p>
+                </li>
+            }
+        </ul>
+        
+        <ul cdkDropList class="selected-books-list" (cdkDropListDropped)="drop($event)">
+            @for (book of booksService.selectedBooks(); track book; let  i = $index) {
+                <li>
+                    <p class="posicion">#{{i+1}}</p>
+                    <div class="selected-book" cdkDrag>
+                        <img [src]="book.cover" alt="">
+                        <button (click)="booksService.removeFromSelectedBooks(book.title)">quitar</button>
+                    </div>
+                </li>
+
+            }
+        </ul>
+          
+    </main>
+
+
+</section>

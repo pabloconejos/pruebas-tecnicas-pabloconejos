@@ -1,0 +1,241 @@
+.books-container {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+    gap: 20px;
+    border: 1px solid #e0e0e0;
+}
+
+.container-filter .title h1,
+.container-filter .title h3 {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-filter .title h1 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.container-filter .title h3 {
+    font-size: 18px;
+    font-weight: normal;
+    color: #555;
+}
+
+.container-filter .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.container-filter .filters label {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #444;
+    font-weight: 500;
+    gap: 5px;
+}
+
+.container-filter .filters input[type="range"] {
+    margin-top: 5px;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: background 0.3s ease;
+}
+
+.container-filter .filters input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #007BFF;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.container-filter .filters input[type="range"]:hover::-webkit-slider-thumb {
+    background: #0056b3;
+}
+
+.container-filter .filters select {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    transition: border 0.3s ease;
+}
+
+.container-filter .filters select:focus {
+    border: 1px solid #007BFF;
+    outline: none;
+}
+
+.container-filter .filters select option {
+    padding: 5px;
+    font-size: 14px;
+}
+
+
+.books {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.main.books {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.lista-books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 3;
+}
+
+.lista-books .grid-item {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.lista-books .grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.lista-books img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    max-width: 150px;
+}
+
+.lista-books p {
+    margin: 10px 0 0;
+    font-size: 14px;
+    color: #666;
+}
+
+
+.selected-books-list {
+    display: flex;
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 60px;
+    background: #f9f9f9; /* Fondo más suave */
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    flex-direction: column; /* Mejor para listas verticales */
+    box-sizing: border-box;
+
+    li {
+        position: relative;
+    }
+}
+
+.selected-book {
+    padding: 15px;
+    margin: 10px;
+    border-bottom: solid 1px #ddd; /* Un borde más suave */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background: white;
+    font-size: 14px;
+    cursor: move;
+    transition: background-color 0.3s ease; /* Transición suave para hover */
+    box-sizing: border-box;
+}
+
+.posicion {
+    font-weight: bold;
+    font-size: 30px;
+    font-family: Arial;
+    position: absolute;
+    transform: rotate(15deg);
+}
+
+.selected-book:hover {
+    background-color: #f1f1f1; /* Efecto hover para resaltar el item */
+}
+
+.selected-book img {
+    max-width: 50px;
+    border-radius: 4px; /* Esquinas redondeadas en la imagen */
+}
+
+.selected-book button {
+    background: #ff4d4f; /* Color de fondo atractivo para el botón */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.3s ease;
+}
+
+.selected-book button:hover {
+    background: #ff7875; /* Color más suave para el hover */
+}
+
+.selected-book:last-child {
+    border: none; /* Eliminar borde en el último item */
+}
+
+.cdk-drag-preview {
+    border: none;
+    box-sizing: border-box;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1); /* Sombra más sutil */
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.cdk-drag-animating {
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* Estilo cuando se está arrastrando */
+.selected-books-list.cdk-drop-list-dragging .selected-book:not(.cdk-drag-placeholder) {
+    background-color: #e6f7ff; /* Color de fondo cuando se está arrastrando */
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1), background-color 0.3s ease;
+}
